@@ -1,9 +1,9 @@
-FROM golang:1.16.3-alpine
+FROM golang:alpine3.15
 
-RUN apk update && apk add git
+WORKDIR /api
 
-RUN mkdir /go/src/app
+COPY ./main.go .
 
-WORKDIR /go/src/app
+RUN go mod init todo && go mod tidy
 
-ADD . /go/src/app
+CMD ["go", "run", "./main.go"]
