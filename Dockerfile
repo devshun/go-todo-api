@@ -1,6 +1,6 @@
 FROM golang:alpine3.15
 
-WORKDIR /api
+WORKDIR /app/src
 
 COPY ./main.go .
 
